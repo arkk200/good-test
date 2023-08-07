@@ -12,3 +12,5 @@ export const color = {
   white: "#FFFFFF",
   red: "#FF0000",
 };
+
+export type Color = keyof typeof color;

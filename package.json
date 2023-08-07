@@ -14,6 +14,7 @@
     "@types/node": "20.4.7",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
+    "@types/styled-components": "^5.1.26",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "next": "13.4.12",
@@ -34,6 +35,7 @@
     "@storybook/testing-library": "^0.2.0",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint-plugin-storybook": "^0.6.13",
-    "storybook": "^7.2.1"
+    "storybook": "^7.2.1",
+    "tsconfig-paths-webpack-plugin": "^4.1.0"
   }
 }

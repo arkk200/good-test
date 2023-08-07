@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import Button from "./Button";
 
 export default {
@@ -7,8 +7,11 @@ export default {
   tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
 
-export const Default: StoryObj = {
+export const Default: StoryObj<typeof Button> = {
   args: {
-    children: "asdf",
+    children: "qwer",
+    color: "black",
+    backgroundColor: "secondary",
+    width: "1000px",
   },
 };
