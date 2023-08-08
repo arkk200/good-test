@@ -20,7 +20,6 @@ export const font = {
   }),
   H3Light: css({
     fontSize: 22,
-    fontWeight: "bold",
     lineHeight: "130%",
     letterSpacing: 0.15,
   }),
@@ -37,7 +36,6 @@ export const font = {
   }),
   p2Light: css({
     fontSize: 16,
-    fontWeight: "light",
     lineHeight: "160%",
   }),
   p3: css({
@@ -48,7 +46,6 @@ export const font = {
   }),
   p3Light: css({
     fontSize: 14,
-    fontWeight: "light",
     lineHeight: "160%",
     letterSpacing: "-0.1%",
   }),
