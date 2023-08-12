@@ -1,5 +1,5 @@
 import { Color, color } from "@/styles/color.style";
-import { font } from "@/styles/font.style";
+import { FontWeight, font, fontWeight } from "@/styles/font.style";
 import { ButtonHTMLAttributes, CSSProperties, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
@@ -9,7 +9,7 @@ interface PropTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
   backgroundColor: Color;
   color: Color;
   size?: "LARGE" | "MEDIUM" | "SMALL";
-  weight?: "bold" | "light";
+  weight?: FontWeight;
 }
 
 const Button = ({
@@ -39,7 +39,7 @@ export default Button;
 
 const StyledButton = styled.button<{
   size: PropTypes["size"];
-  weight: "bold" | "light";
+  weight: FontWeight;
 }>`
   border-radius: 6px;
   border: 2px solid ${color.black};
@@ -64,14 +64,5 @@ const StyledButton = styled.button<{
         `
       : null}
 
-  ${(props) =>
-    props.weight === "bold"
-      ? css`
-          font-weight: 700;
-        `
-      : props.weight === "light"
-      ? css`
-          font-weight: 300;
-        `
-      : null}
+  ${(props) => fontWeight[props.weight]}
 `;

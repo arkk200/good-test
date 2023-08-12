@@ -20,7 +20,7 @@ export const font = {
   }),
   H3: css({
     fontSize: 22,
-    fontWeight: 300,
+    fontWeight: 700,
     lineHeight: "130%",
     letterSpacing: 0.15,
   }),
@@ -42,3 +42,16 @@ export const font = {
     letterSpacing: "-0.1%",
   }),
 };
+
+export type Font = keyof typeof font;
+
+export const fontWeight = {
+  bold: css({
+    fontWeight: 700,
+  }),
+  light: css({
+    fontWeight: 300,
+  }),
+};
+
+export type FontWeight = keyof typeof fontWeight;
