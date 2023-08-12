@@ -12,6 +12,6 @@ export const Default: StoryObj<typeof Button> = {
     children: "qwer",
     color: "black",
     backgroundColor: "secondary",
-    width: "1000px",
+    width: 100,
   },
 };

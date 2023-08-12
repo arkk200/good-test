@@ -9,6 +9,7 @@ interface PropTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
   backgroundColor: Color;
   color: Color;
   size?: "LARGE" | "MEDIUM" | "SMALL";
+  weight?: "bold" | "light";
 }
 
 const Button = ({
@@ -17,6 +18,7 @@ const Button = ({
   color: colorName,
   backgroundColor: backgroundColorName,
   size = "MEDIUM",
+  weight = "bold",
 }: PropTypes) => {
   return (
     <StyledButton
@@ -26,6 +28,7 @@ const Button = ({
         backgroundColor: color[backgroundColorName],
       }}
       size={size}
+      weight={weight}
     >
       {children}
     </StyledButton>
@@ -34,7 +37,10 @@ const Button = ({
 
 export default Button;
 
-const StyledButton = styled.button<{ size: PropTypes["size"] }>`
+const StyledButton = styled.button<{
+  size: PropTypes["size"];
+  weight: "bold" | "light";
+}>`
   border-radius: 6px;
   border: 2px solid ${color.black};
   box-shadow: 3px 3px 0px 0px ${color.black};
@@ -55,6 +61,17 @@ const StyledButton = styled.button<{ size: PropTypes["size"] }>`
       ? css`
           ${font.p3}
           height: 34px;
+        `
+      : null}
+
+  ${(props) =>
+    props.weight === "bold"
+      ? css`
+          font-weight: 700;
+        `
+      : props.weight === "light"
+      ? css`
+          font-weight: 300;
         `
       : null}
 `;
