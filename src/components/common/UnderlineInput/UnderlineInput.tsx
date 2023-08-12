@@ -12,7 +12,8 @@ const UnderlineInput = ({ placeholder, width }: PropTypes) => {
 export default UnderlineInput;
 
 const Input = styled.input`
-  ${font.H3Light}
+  ${font.H3}
+  font-weight: 300;
   height: 38px;
   color: ${color.black};
   border-bottom: 2px solid #000;
