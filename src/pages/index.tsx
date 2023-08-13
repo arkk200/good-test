@@ -1,8 +1,8 @@
 import Button from "@/components/common/Button/Button";
 import { Column, Row } from "@/components/common/Flex/Flex";
 import Input from "@/components/common/Input/Input";
+import Text from "@/components/common/Text/Text";
 import { color } from "@/styles/color.style";
-import { font } from "@/styles/font.style";
 import { Inter } from "next/font/google";
 import { styled } from "styled-components";
 
@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <Column alignItems="center" gap={30}>
-      <Tset>Tset</Tset>
+      <Tset type="D1">Tset</Tset>
       <Form>
         <Column gap={24}>
           <Column gap={16}>
@@ -82,8 +82,7 @@ export default function Home() {
   );
 }
 
-const Tset = styled.p`
-  ${font.D1}
+const Tset = styled(Text)`
   text-shadow: 3px 3px 0px ${color.quaternary};
 `;
 
