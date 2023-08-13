@@ -117,6 +117,8 @@ const DropdownItemList = styled.div`
   border-radius: 6px;
   background-color: ${color.main};
   box-shadow: 3px 3px 0px 0px #000;
+  max-height: 154px;
+  overflow: auto;
 `;
 
 const DropdownItem = styled.p`
