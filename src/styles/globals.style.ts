@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   ${reset}
 
   button, input {
@@ -10,7 +10,8 @@ const GlobalStyle = createGlobalStyle`
   }
   button {
     cursor: pointer;
+    padding: 0;
   }
 `;
 
-export default GlobalStyle;
+export default GlobalStyles;
