@@ -9,6 +9,8 @@ export default {
 
 export const Default: StoryObj<typeof Input> = {
   args: {
+    label: "라벨",
     placeholder: "Title123",
+    backgroundColor: "main",
   },
 };

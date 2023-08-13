@@ -7,6 +7,7 @@ interface PropTypes
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   size?: "LARGE" | "SMALL";
   backgroundColor: Color;
+  label: string;
 }
 
 const Input = ({
@@ -14,17 +15,29 @@ const Input = ({
   width,
   backgroundColor: backgroundColorName,
   size = "LARGE",
+  label,
 }: PropTypes) => {
   return (
-    <StyledInput
-      placeholder={placeholder}
-      style={{ width, backgroundColor: color[backgroundColorName] }}
-      size={size}
-    />
+    <>
+      {label && <Label>{label}</Label>}
+      <StyledInput
+        placeholder={placeholder}
+        style={{ width, backgroundColor: color[backgroundColorName] }}
+        size={size}
+      />
+    </>
   );
 };
 
 export default Input;
+
+const Label = styled.div`
+  display: inline-block;
+  ${font.p3}
+  color: ${color.black};
+  margin-left: 8px;
+  margin-bottom: 6px;
+`;
 
 const StyledInput = styled.input<{ size: "LARGE" | "SMALL" }>`
   display: flex;
