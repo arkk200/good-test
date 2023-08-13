@@ -42,7 +42,9 @@ const Register = () => {
               <Dropdown
                 label="생년월일"
                 name="year"
-                list={Array(100).map((_, idx) => 2023 - 100 + idx + 1 + "")}
+                list={Array(100)
+                  .fill(null)
+                  .map((_, idx) => 2023 - idx + "")}
                 value=""
                 onChange={() => {}}
                 placeholder="년도"
@@ -50,7 +52,9 @@ const Register = () => {
               />
               <Dropdown
                 name="month"
-                list={Array(12).map((_, idx) => idx + 1 + "")}
+                list={Array(12)
+                  .fill(null)
+                  .map((_, idx) => idx + 1 + "")}
                 value=""
                 onChange={() => {}}
                 placeholder="월"
@@ -58,7 +62,9 @@ const Register = () => {
               />
               <Dropdown
                 name="day"
-                list={Array(31).map((_, idx) => idx + 1 + "")}
+                list={Array(31)
+                  .fill(null)
+                  .map((_, idx) => idx + 1 + "")}
                 value=""
                 onChange={() => {}}
                 placeholder="일"
