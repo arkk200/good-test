@@ -10,6 +10,8 @@ interface PropTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
   color: Color;
   size?: "LARGE" | "MEDIUM" | "SMALL";
   weight?: FontWeight;
+  childrenAlign?: CSSProperties["justifyContent"];
+  padding?: CSSProperties["padding"];
 }
 
 const Button = ({
@@ -19,6 +21,8 @@ const Button = ({
   backgroundColor: backgroundColorName,
   size = "MEDIUM",
   weight = "bold",
+  childrenAlign = "center",
+  padding,
 }: PropTypes) => {
   return (
     <StyledButton
@@ -26,6 +30,8 @@ const Button = ({
         width,
         color: color[colorName],
         backgroundColor: color[backgroundColorName],
+        justifyContent: childrenAlign,
+        padding,
       }}
       size={size}
       weight={weight}
@@ -44,7 +50,8 @@ const StyledButton = styled.button<{
   border-radius: 6px;
   border: 2px solid ${color.black};
   box-shadow: 3px 3px 0px 0px ${color.black};
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
 
   ${({ size }) =>
     size === "LARGE"
