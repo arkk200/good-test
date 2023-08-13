@@ -8,7 +8,7 @@ import { styled } from "styled-components";
 
 const Register = () => {
   return (
-    <StyledRegister>
+    <Column alignItems="center" gap={42}>
       <Text type="H1">사용자 정보 입력</Text>
       <RegisterForm>
         <Column gap={30} alignItems="center">
@@ -77,18 +77,11 @@ const Register = () => {
           </Button>
         </Column>
       </RegisterForm>
-    </StyledRegister>
+    </Column>
   );
 };
 
 export default Register;
-
-const StyledRegister = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 42px;
-`;
 
 const RegisterForm = styled.div`
   padding: 16px 24px 24px;
