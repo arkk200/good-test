@@ -14,6 +14,7 @@ interface PropTypes {
   onChange: (name: string, value: string) => void;
   placeholder?: string;
   width?: CSSProperties["width"];
+  label?: string;
 }
 
 const Dropdown = ({
@@ -23,6 +24,7 @@ const Dropdown = ({
   onChange,
   placeholder,
   width = "fit-content",
+  label,
 }: PropTypes) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const {
@@ -41,41 +43,52 @@ const Dropdown = ({
   };
 
   return (
-    <div ref={dropdownRef} style={{ width }}>
-      <SelectedItem onClick={toggleIsOpen}>
-        <Text type="p2" weight="light" color={value ? "black" : "gray500"}>
-          {value || placeholder}
-        </Text>
-        <IconDropdown isOpen={isOpen} />
-      </SelectedItem>
-      {isOpen && (
-        <DropdownItemListBox>
-          <DropdownItemList>
-            {list.map((item) =>
-              typeof item === "string" ? (
-                <DropdownItem
-                  key={`dropdown ${name} ${item}`}
-                  onClick={() => handleDropdownItemClick(item)}
-                >
-                  {item}
-                </DropdownItem>
-              ) : (
-                <DropdownItem
-                  key={`dropdown ${name} ${item.value}`}
-                  onClick={() => handleDropdownItemClick(item.value)}
-                >
-                  {item.content}
-                </DropdownItem>
-              )
-            )}
-          </DropdownItemList>
-        </DropdownItemListBox>
-      )}
-    </div>
+    <>
+      {label && <Label>{label}</Label>}
+      <div ref={dropdownRef} style={{ width }}>
+        <SelectedItem onClick={toggleIsOpen}>
+          <Text type="p2" weight="light" color={value ? "black" : "gray500"}>
+            {value || placeholder}
+          </Text>
+          <IconDropdown isOpen={isOpen} />
+        </SelectedItem>
+        {isOpen && (
+          <DropdownItemListBox>
+            <DropdownItemList>
+              {list.map((item) =>
+                typeof item === "string" ? (
+                  <DropdownItem
+                    key={`dropdown ${name} ${item}`}
+                    onClick={() => handleDropdownItemClick(item)}
+                  >
+                    {item}
+                  </DropdownItem>
+                ) : (
+                  <DropdownItem
+                    key={`dropdown ${name} ${item.value}`}
+                    onClick={() => handleDropdownItemClick(item.value)}
+                  >
+                    {item.content}
+                  </DropdownItem>
+                )
+              )}
+            </DropdownItemList>
+          </DropdownItemListBox>
+        )}
+      </div>
+    </>
   );
 };
 
 export default Dropdown;
+
+const Label = styled.div`
+  display: inline-block;
+  ${font.p3}
+  color: ${color.black};
+  margin-left: 8px;
+  margin-bottom: 6px;
+`;
 
 const SelectedItem = styled.div`
   display: flex;

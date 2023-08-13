@@ -7,7 +7,7 @@ interface PropTypes
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   size?: "LARGE" | "SMALL";
   backgroundColor: Color;
-  label: string;
+  label?: string;
 }
 
 const Input = ({
