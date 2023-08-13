@@ -43,9 +43,9 @@ const Dropdown = ({
   };
 
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", gap: 6, width }}>
       {label && <Label>{label}</Label>}
-      <div ref={dropdownRef} style={{ width }}>
+      <div ref={dropdownRef}>
         <SelectedItem onClick={toggleIsOpen}>
           <Text type="p2" weight="light" color={value ? "black" : "gray500"}>
             {value || placeholder}
@@ -76,7 +76,7 @@ const Dropdown = ({
           </DropdownItemListBox>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
@@ -87,7 +87,6 @@ const Label = styled.div`
   ${font.p3}
   color: ${color.black};
   margin-left: 8px;
-  margin-bottom: 6px;
 `;
 
 const SelectedItem = styled.div`

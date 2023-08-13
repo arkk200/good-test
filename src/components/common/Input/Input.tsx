@@ -18,14 +18,14 @@ const Input = ({
   label,
 }: PropTypes) => {
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", gap: 6, width }}>
       {label && <Label>{label}</Label>}
       <StyledInput
         placeholder={placeholder}
-        style={{ width, backgroundColor: color[backgroundColorName] }}
+        style={{ backgroundColor: color[backgroundColorName] }}
         size={size}
       />
-    </>
+    </div>
   );
 };
 
@@ -36,7 +36,6 @@ const Label = styled.div`
   ${font.p3}
   color: ${color.black};
   margin-left: 8px;
-  margin-bottom: 6px;
 `;
 
 const StyledInput = styled.input<{ size: "LARGE" | "SMALL" }>`

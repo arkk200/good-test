@@ -12,5 +12,6 @@ export const Default: StoryObj<typeof Input> = {
     label: "라벨",
     placeholder: "Title123",
     backgroundColor: "main",
+    width: 100,
   },
 };
