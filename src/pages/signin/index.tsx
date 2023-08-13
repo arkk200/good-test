@@ -38,10 +38,10 @@ const StyledSignIn = styled.div`
 
 const SignInButtonList = styled.div`
   padding: 20px 24px;
-  border: 2px solid #000;
+  border: 2px solid ${color.black};
   border-radius: 12px;
   background-color: ${color.secondary};
-  box-shadow: 3px 3px 0px 0px #000;
+  box-shadow: 3px 3px 0px 0px ${color.black};
 `;
 
 const GoogleSignInBox = styled.div`
