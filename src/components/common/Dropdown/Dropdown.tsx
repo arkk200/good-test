@@ -87,6 +87,7 @@ const Label = styled.div`
   ${font.p3}
   color: ${color.black};
   margin-left: 8px;
+  user-select: none;
 `;
 
 const SelectedItem = styled.div`

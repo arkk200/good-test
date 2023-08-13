@@ -52,6 +52,7 @@ const StyledButton = styled.button<{
   box-shadow: 3px 3px 0px 0px ${color.black};
   display: flex;
   align-items: center;
+  user-select: none;
 
   ${({ size }) =>
     size === "LARGE"

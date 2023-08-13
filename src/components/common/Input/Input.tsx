@@ -36,6 +36,7 @@ const Label = styled.div`
   ${font.p3}
   color: ${color.black};
   margin-left: 8px;
+  user-select: none;
 `;
 
 const StyledInput = styled.input<{ size: "LARGE" | "SMALL" }>`
