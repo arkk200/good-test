@@ -12,6 +12,7 @@ interface PropTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
   weight?: FontWeight;
   childrenAlign?: CSSProperties["justifyContent"];
   padding?: CSSProperties["padding"];
+  style?: CSSProperties;
 }
 
 const Button = ({
@@ -23,6 +24,7 @@ const Button = ({
   weight = "bold",
   childrenAlign = "center",
   padding,
+  style,
 }: PropTypes) => {
   return (
     <StyledButton
@@ -32,6 +34,7 @@ const Button = ({
         backgroundColor: color[backgroundColorName],
         justifyContent: childrenAlign,
         padding,
+        ...style,
       }}
       size={size}
       weight={weight}
