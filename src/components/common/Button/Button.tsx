@@ -8,7 +8,7 @@ interface PropTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
   width: CSSProperties["width"];
   backgroundColor: Color;
   color: Color;
-  size?: "LARGE" | "MEDIUM" | "SMALL";
+  size?: "XLARGE" | "LARGE" | "MEDIUM" | "SMALL";
   weight?: FontWeight;
   childrenAlign?: CSSProperties["justifyContent"];
   padding?: CSSProperties["padding"];
@@ -58,7 +58,12 @@ const StyledButton = styled.button<{
   user-select: none;
 
   ${({ size }) =>
-    size === "LARGE"
+    size === "XLARGE"
+      ? css`
+          ${font.H2}
+          height: 64px;
+        `
+      : size === "LARGE"
       ? css`
           ${font.p1}
           height: 42px;
