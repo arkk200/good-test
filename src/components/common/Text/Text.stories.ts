@@ -10,5 +10,8 @@ export default {
 export const Default: StoryObj<typeof Text> = {
   args: {
     children: "Title123",
+    color: "black",
+    type: "H1",
+    weight: "bold",
   },
 };

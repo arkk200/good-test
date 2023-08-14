@@ -9,6 +9,7 @@ export default {
 
 export const Default: StoryObj<typeof Dropdown> = {
   args: {
+    label: "라벨123",
     placeholder: "년도",
     name: "year",
     width: 100,

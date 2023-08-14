@@ -14,6 +14,7 @@ interface PropTypes {
   onChange: (name: string, value: string) => void;
   placeholder?: string;
   width?: CSSProperties["width"];
+  label?: string;
 }
 
 const Dropdown = ({
@@ -23,6 +24,7 @@ const Dropdown = ({
   onChange,
   placeholder,
   width = "fit-content",
+  label,
 }: PropTypes) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const {
@@ -41,41 +43,52 @@ const Dropdown = ({
   };
 
   return (
-    <div ref={dropdownRef} style={{ width }}>
-      <SelectedItem onClick={toggleIsOpen}>
-        <Text type="p2" weight="light" color={value ? "black" : "gray500"}>
-          {value || placeholder}
-        </Text>
-        <IconDropdown isOpen={isOpen} />
-      </SelectedItem>
-      {isOpen && (
-        <DropdownItemListBox>
-          <DropdownItemList>
-            {list.map((item) =>
-              typeof item === "string" ? (
-                <DropdownItem
-                  key={`dropdown ${name} ${item}`}
-                  onClick={() => handleDropdownItemClick(item)}
-                >
-                  {item}
-                </DropdownItem>
-              ) : (
-                <DropdownItem
-                  key={`dropdown ${name} ${item.value}`}
-                  onClick={() => handleDropdownItemClick(item.value)}
-                >
-                  {item.content}
-                </DropdownItem>
-              )
-            )}
-          </DropdownItemList>
-        </DropdownItemListBox>
-      )}
+    <div style={{ display: "flex", flexDirection: "column", gap: 6, width }}>
+      {label && <Label>{label}</Label>}
+      <div ref={dropdownRef}>
+        <SelectedItem onClick={toggleIsOpen}>
+          <Text type="p2" weight="light" color={value ? "black" : "gray500"}>
+            {value || placeholder}
+          </Text>
+          <IconDropdown isOpen={isOpen} />
+        </SelectedItem>
+        {isOpen && (
+          <DropdownItemListBox>
+            <DropdownItemList>
+              {list.map((item) =>
+                typeof item === "string" ? (
+                  <DropdownItem
+                    key={`dropdown ${name} ${item}`}
+                    onClick={() => handleDropdownItemClick(item)}
+                  >
+                    {item}
+                  </DropdownItem>
+                ) : (
+                  <DropdownItem
+                    key={`dropdown ${name} ${item.value}`}
+                    onClick={() => handleDropdownItemClick(item.value)}
+                  >
+                    {item.content}
+                  </DropdownItem>
+                )
+              )}
+            </DropdownItemList>
+          </DropdownItemListBox>
+        )}
+      </div>
     </div>
   );
 };
 
 export default Dropdown;
+
+const Label = styled.div`
+  display: inline-block;
+  ${font.p3}
+  color: ${color.black};
+  margin-left: 8px;
+  user-select: none;
+`;
 
 const SelectedItem = styled.div`
   display: flex;
@@ -105,6 +118,9 @@ const DropdownItemList = styled.div`
   border-radius: 6px;
   background-color: ${color.main};
   box-shadow: 3px 3px 0px 0px #000;
+  max-height: 154px;
+  overflow: auto;
+  z-index: 1;
 `;
 
 const DropdownItem = styled.p`

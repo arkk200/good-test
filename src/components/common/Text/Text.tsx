@@ -1,7 +1,7 @@
 import { Color, color } from "@/styles/color.style";
 import { Font, FontWeight, font, fontWeight } from "@/styles/font.style";
 import { CSSProperties, ReactNode } from "react";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 interface PropTypes {
   children: ReactNode;
@@ -12,29 +12,17 @@ interface PropTypes {
   color?: Color;
 }
 
-const Text = ({
-  children,
-  width,
-  height,
-  type,
-  weight = "bold",
-  color: colorName = "black",
-}: PropTypes) => {
-  return (
-    <StyledText
-      style={{ width, height, color: color[colorName] }}
-      type={type}
-      weight={weight}
-    >
-      {children}
-    </StyledText>
-  );
-};
+const Text = styled.p<PropTypes>`
+  ${({ width, height, color: colorName }) =>
+    css({
+      width,
+      height,
+      color: color[colorName ?? "black"],
+    })}
 
-export default Text;
-
-const StyledText = styled.p<{ type: Font; weight: FontWeight }>`
   ${(props) => font[props.type]}
-  ${(props) => fontWeight[props.weight]}
+  ${(props) => fontWeight[props.weight ?? "bold"]}
   user-select: none;
 `;
+
+export default Text;
