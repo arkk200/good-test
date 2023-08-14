@@ -120,6 +120,7 @@ const DropdownItemList = styled.div`
   box-shadow: 3px 3px 0px 0px #000;
   max-height: 154px;
   overflow: auto;
+  z-index: 1;
 `;
 
 const DropdownItem = styled.p`
