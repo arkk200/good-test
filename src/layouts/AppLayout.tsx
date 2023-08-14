@@ -15,7 +15,7 @@ const StyledAppLayout = styled.div`
   min-width: fit-content;
   width: 100vw;
   min-height: 100vh;
-  padding: 46px 0;
+  padding: 46px;
   box-sizing: border-box;
   background-color: ${color.main};
 `;
