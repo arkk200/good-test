@@ -10,7 +10,7 @@ const Register = () => {
   return (
     <Column alignItems="center" gap={42}>
       <Text type="H1">사용자 정보 입력</Text>
-      <RegisterForm>
+      <Form>
         <Column gap={30} alignItems="center">
           <Column gap={18}>
             <Row alignItems="flex-end" gap={24}>
@@ -76,14 +76,14 @@ const Register = () => {
             완료
           </Button>
         </Column>
-      </RegisterForm>
+      </Form>
     </Column>
   );
 };
 
 export default Register;
 
-const RegisterForm = styled.div`
+const Form = styled.div`
   padding: 16px 24px 24px;
   border-radius: 12px;
   border: 2px solid ${color.black};
